@@ -1,0 +1,12 @@
+{{- range $clusterRoleKey, $clusterRoleObject := .Values.clusterroles }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: "{{ $clusterRoleKey }}"
+rules:
+{{- range $clusterRoleObject }}
+- {{-  . | toYaml | nindent 2  }}
+{{- end }}
+
+{{- end }}

@@ -1,0 +1,15 @@
+{{- range $namespaceKey, $namespaceObject := .Values.roles }}
+{{- range $roleKey, $roleObject := $namespaceObject }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: "{{ $roleKey }}"
+  namespace: "{{ $namespaceKey }}"
+rules:
+{{- range $roleObject }}
+- {{-  . | toYaml | nindent 2  }}
+{{- end }}
+
+{{- end }}
+{{- end }}

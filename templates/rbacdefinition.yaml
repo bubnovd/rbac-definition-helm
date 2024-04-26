@@ -1,0 +1,9 @@
+apiVersion: rbacmanager.reactiveops.io/v1beta1
+kind: RBACDefinition
+metadata:
+  name: {{ .Release.Name }}-rbacdefinition
+rbacBindings: 
+{{- range $key, $value := .Values.rbacBindings }}
+  - name: {{ quote $key }}
+    {{- toYaml $value | nindent 4 }}
+{{- end }}

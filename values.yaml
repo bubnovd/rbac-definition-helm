@@ -1,0 +1,39 @@
+rbacBindings: {}
+#  rbacBindingName:
+#    subjects:
+#      - kind: Group
+#        name: team-b
+#      - kind: Group
+#        name: team-a
+#      - kind: Group
+#        name: team-c
+#    roleBindings:
+#      - clusterRole: view
+#        namespace: product-ns
+#  AnotherRbacBindingName:
+#    subjects:
+#      - kind: Group
+#        name: team-a
+#      - kind: Group
+#        name: team-d
+#    roleBindings:
+#      - clusterRole: ns-view
+#        namespaceSelector:
+#          matchLabels:
+#            project: name
+#            label: mylabel
+#    clusterRoleBindings:
+#      - clusterRole: view
+
+roles: {}
+  #namespace:
+  #  roleName:
+  #  - apiGroups: ["monitoring.coreos.com"]
+  #    resources: ["alertmanagerconfigs"]
+  #    verbs: ["get", "list", "watch", "create", "patch", "update"]
+
+clusterroles: {}
+#  ns-view:
+#    - apiGroups: [""]
+#      resources: ["namespaces"]
+#      verbs: ["get", "list", "watch"]
